@@ -67,13 +67,20 @@ export default class OpenAIProvider extends BaseProvider {
       throw `Missing Api Key configuration for ${this.name} provider`;
     }
 
-    const response = await fetch(`https://api.openai.com/v1/models`, {
+    const baseUrl = serverEnv?.OPENAI_API_BASE_URL || serverEnv?.OPENAI_LIKE_API_BASE_URL || 'https://api.openai.com/v1';
+
+    const response = await fetch(`${baseUrl}/models`, {
       headers: {
         Authorization: `Bearer ${apiKey}`,
       },
     });
 
     const res = (await response.json()) as any;
+
+    if (!res.data) {
+      return [];
+    }
+
     const staticModelIds = this.staticModels.map((m) => m.name);
 
     const data = res.data.filter(
