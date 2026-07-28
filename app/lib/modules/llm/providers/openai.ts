@@ -151,6 +151,7 @@ export default class OpenAIProvider extends BaseProvider {
 
     const openai = createOpenAI({
       apiKey,
+      baseURL: (serverEnv as any)?.OPENAI_API_BASE_URL || (serverEnv as any)?.OPENAI_LIKE_API_BASE_URL || undefined,
     });
 
     return openai(model);
