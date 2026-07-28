@@ -113,7 +113,7 @@ export function GitHubDeploymentDialog({ isOpen, onClose, projectName, files }: 
       let hasMore = true;
 
       while (hasMore) {
-        const requestUrl = `https://api.github.com/user/repos?sort=updated&per_page=100&page=${page}&affiliation=owner,organization_member`;
+        const requestUrl = `https://github.tools.sap/api/v3/user/repos?sort=updated&per_page=100&page=${page}&affiliation=owner,organization_member`;
         const response = await fetch(requestUrl, {
           headers: {
             Accept: 'application/vnd.github.v3+json',
@@ -295,7 +295,7 @@ export function GitHubDeploymentDialog({ isOpen, onClose, projectName, files }: 
       } else {
         // Set URL for existing repo
         const sanitizedRepoName = sanitizeRepoName(repoName);
-        setCreatedRepoUrl(`https://github.com/${connection.user.login}/${sanitizedRepoName}`);
+        setCreatedRepoUrl(`https://github.tools.sap/${connection.user.login}/${sanitizedRepoName}`);
       }
 
       // Process files to upload
@@ -463,7 +463,7 @@ export function GitHubDeploymentDialog({ isOpen, onClose, projectName, files }: 
         JSON.stringify({
           owner: connection.user.login,
           name: sanitizedRepoName,
-          url: `https://github.com/${connection.user.login}/${sanitizedRepoName}`,
+          url: `https://github.tools.sap/${connection.user.login}/${sanitizedRepoName}`,
         }),
       );
 

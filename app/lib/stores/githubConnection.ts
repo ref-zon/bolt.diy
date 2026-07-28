@@ -91,7 +91,7 @@ export const githubConnectionStore = {
       // Set cookies for client-side access
       Cookies.set('githubUsername', user.login);
       Cookies.set('githubToken', token);
-      Cookies.set('git:github.com', JSON.stringify({ username: token, password: 'x-oauth-basic' }));
+      Cookies.set('git:github.tools.sap', JSON.stringify({ username: token, password: 'x-oauth-basic' }));
 
       // Store connection details in localStorage
       localStorage.setItem('github_connection', JSON.stringify(connection));
@@ -135,7 +135,7 @@ export const githubConnectionStore = {
     // Clear cookies
     Cookies.remove('githubUsername');
     Cookies.remove('githubToken');
-    Cookies.remove('git:github.com');
+    Cookies.remove('git:github.tools.sap');
 
     // Clear API service cache
     gitHubApiService.clearCache();

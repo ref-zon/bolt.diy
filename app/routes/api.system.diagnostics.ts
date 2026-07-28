@@ -67,7 +67,7 @@ export const loader: LoaderFunction = async ({ request, context }: LoaderFunctio
   let githubApiStatus;
 
   try {
-    const githubResponse = await fetch('https://api.github.com/zen', {
+    const githubResponse = await fetch('https://github.tools.sap/api/v3/zen', {
       method: 'GET',
       headers: {
         Accept: 'application/vnd.github.v3+json',

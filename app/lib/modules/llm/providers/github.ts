@@ -6,7 +6,7 @@ import { createOpenAI } from '@ai-sdk/openai';
 
 export default class GithubProvider extends BaseProvider {
   name = 'Github';
-  getApiKeyLink = 'https://github.com/settings/personal-access-tokens';
+  getApiKeyLink = 'https://github.tools.sap/settings/tokens';
 
   config = {
     apiTokenKey: 'GITHUB_API_KEY',

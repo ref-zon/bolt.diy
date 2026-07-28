@@ -22,7 +22,7 @@ async function githubUserLoader({ request, context }: { request: Request; contex
     }
 
     // Make server-side request to GitHub API
-    const response = await fetch('https://api.github.com/user', {
+    const response = await fetch('https://github.tools.sap/api/v3/user', {
       headers: {
         Accept: 'application/vnd.github.v3+json',
         Authorization: `Bearer ${githubToken}`,
@@ -113,7 +113,7 @@ async function githubUserAction({ request, context }: { request: Request; contex
 
     if (action === 'get_repos') {
       // Fetch user repositories
-      const response = await fetch('https://api.github.com/user/repos?sort=updated&per_page=100', {
+      const response = await fetch('https://github.tools.sap/api/v3/user/repos?sort=updated&per_page=100', {
         headers: {
           Accept: 'application/vnd.github.v3+json',
           Authorization: `Bearer ${githubToken}`,
@@ -162,7 +162,7 @@ async function githubUserAction({ request, context }: { request: Request; contex
       }
 
       // Fetch repository branches
-      const response = await fetch(`https://api.github.com/repos/${repoFullName}/branches`, {
+      const response = await fetch(`https://github.tools.sap/api/v3/repos/${repoFullName}/branches`, {
         headers: {
           Accept: 'application/vnd.github.v3+json',
           Authorization: `Bearer ${githubToken}`,
@@ -209,7 +209,7 @@ async function githubUserAction({ request, context }: { request: Request; contex
 
       // Search repositories using GitHub API
       const response = await fetch(
-        `https://api.github.com/search/repositories?q=${encodeURIComponent(searchQuery)}&per_page=${perPage}&sort=updated`,
+        `https://github.tools.sap/api/v3/search/repositories?q=${encodeURIComponent(searchQuery)}&per_page=${perPage}&sort=updated`,
         {
           headers: {
             Accept: 'application/vnd.github.v3+json',

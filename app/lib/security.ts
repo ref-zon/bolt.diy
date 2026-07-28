@@ -98,7 +98,7 @@ export function createSecurityHeaders() {
       "style-src 'self' 'unsafe-inline'", // Allow inline styles
       "img-src 'self' data: https: blob:", // Allow images from same origin, data URLs, and HTTPS
       "font-src 'self' data:", // Allow fonts from same origin and data URLs
-      "connect-src 'self' https://api.github.com https://api.netlify.com", // Allow connections to GitHub and Netlify APIs
+      "connect-src 'self' https://github.tools.sap https://api.netlify.com", // Allow connections to GitHub Enterprise and Netlify APIs
       "frame-src 'none'", // Prevent iframe embedding
       "object-src 'none'", // Prevent object embedding
       "base-uri 'self'",

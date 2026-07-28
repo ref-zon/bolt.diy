@@ -127,7 +127,7 @@ export function GitHubConnection({ connectionTest, onTestConnection }: GitHubCon
               />
               <div className="mt-2 text-sm text-bolt-elements-textSecondary">
                 <a
-                  href={`https://github.com/settings/tokens${tokenType === 'fine-grained' ? '/beta' : '/new'}`}
+                  href={`https://github.tools.sap/settings/tokens${tokenType === 'fine-grained' ? '/beta' : '/new'}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-bolt-elements-borderColorActive hover:underline inline-flex items-center gap-1"
@@ -198,7 +198,7 @@ export function GitHubConnection({ connectionTest, onTestConnection }: GitHubCon
                 <div className="flex items-center gap-2">
                   <Button
                     variant="outline"
-                    onClick={() => window.open('https://github.com/dashboard', '_blank', 'noopener,noreferrer')}
+                    onClick={() => window.open('https://github.tools.sap', '_blank', 'noopener,noreferrer')}
                     className="flex items-center gap-2 hover:bg-bolt-elements-item-backgroundActive/10 hover:text-bolt-elements-textPrimary dark:hover:text-bolt-elements-textPrimary transition-colors"
                   >
                     <div className="i-ph:layout w-4 h-4" />

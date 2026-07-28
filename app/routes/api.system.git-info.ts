@@ -116,7 +116,7 @@ export const loader: LoaderFunction = async ({ request, context }: LoaderFunctio
 
     try {
       if (action === 'getUser') {
-        const response = await fetch('https://api.github.com/user', {
+        const response = await fetch('https://github.tools.sap/api/v3/user', {
           headers: {
             Accept: 'application/vnd.github.v3+json',
             Authorization: `Bearer ${token}`,
@@ -142,7 +142,7 @@ export const loader: LoaderFunction = async ({ request, context }: LoaderFunctio
       }
 
       if (action === 'getRepos') {
-        const reposResponse = await fetch('https://api.github.com/user/repos?per_page=100&sort=updated', {
+        const reposResponse = await fetch('https://github.tools.sap/api/v3/user/repos?per_page=100&sort=updated', {
           headers: {
             Accept: 'application/vnd.github.v3+json',
             Authorization: `Bearer ${token}`,
@@ -157,7 +157,7 @@ export const loader: LoaderFunction = async ({ request, context }: LoaderFunctio
         const repos = (await reposResponse.json()) as GitHubRepo[];
 
         // Get user's gists
-        const gistsResponse = await fetch('https://api.github.com/gists', {
+        const gistsResponse = await fetch('https://github.tools.sap/api/v3/gists', {
           headers: {
             Accept: 'application/vnd.github.v3+json',
             Authorization: `Bearer ${token}`,
@@ -225,7 +225,7 @@ export const loader: LoaderFunction = async ({ request, context }: LoaderFunctio
       }
 
       if (action === 'getOrgs') {
-        const response = await fetch('https://api.github.com/user/orgs', {
+        const response = await fetch('https://github.tools.sap/api/v3/user/orgs', {
           headers: {
             Accept: 'application/vnd.github.v3+json',
             Authorization: `Bearer ${token}`,
@@ -271,7 +271,7 @@ export const loader: LoaderFunction = async ({ request, context }: LoaderFunctio
           );
         }
 
-        const response = await fetch(`https://api.github.com/users/${username}/events?per_page=30`, {
+        const response = await fetch(`https://github.tools.sap/api/v3/users/${username}/events?per_page=30`, {
           headers: {
             Accept: 'application/vnd.github.v3+json',
             Authorization: `Bearer ${token}`,

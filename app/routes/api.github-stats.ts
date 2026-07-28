@@ -23,7 +23,7 @@ async function githubStatsLoader({ request, context }: { request: Request; conte
     }
 
     // Get user info first
-    const userResponse = await fetch('https://api.github.com/user', {
+    const userResponse = await fetch('https://github.tools.sap/api/v3/user', {
       headers: {
         Accept: 'application/vnd.github.v3+json',
         Authorization: `Bearer ${githubToken}`,
@@ -48,7 +48,7 @@ async function githubStatsLoader({ request, context }: { request: Request; conte
 
     while (hasMore) {
       const repoResponse = await fetch(
-        `https://api.github.com/user/repos?sort=updated&per_page=100&page=${page}&affiliation=owner,organization_member`,
+        `https://github.tools.sap/api/v3/user/repos?sort=updated&per_page=100&page=${page}&affiliation=owner,organization_member`,
         {
           headers: {
             Accept: 'application/vnd.github.v3+json',
@@ -76,7 +76,7 @@ async function githubStatsLoader({ request, context }: { request: Request; conte
     const reposWithBranches = await Promise.allSettled(
       allRepos.slice(0, 50).map(async (repo) => {
         try {
-          const branchesResponse = await fetch(`https://api.github.com/repos/${repo.full_name}/branches?per_page=1`, {
+          const branchesResponse = await fetch(`https://github.tools.sap/api/v3/repos/${repo.full_name}/branches?per_page=1`, {
             headers: {
               Accept: 'application/vnd.github.v3+json',
               Authorization: `Bearer ${githubToken}`,

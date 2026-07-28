@@ -68,7 +68,7 @@ async function githubBranchesLoader({ request, context }: { request: Request; co
     }
 
     // First, get repository info to know the default branch
-    const repoResponse = await fetch(`https://api.github.com/repos/${owner}/${repo}`, {
+    const repoResponse = await fetch(`https://github.tools.sap/api/v3/repos/${owner}/${repo}`, {
       headers: {
         Accept: 'application/vnd.github.v3+json',
         Authorization: `Bearer ${githubToken}`,
@@ -92,7 +92,7 @@ async function githubBranchesLoader({ request, context }: { request: Request; co
     const defaultBranch = repoInfo.default_branch;
 
     // Fetch branches
-    const branchesResponse = await fetch(`https://api.github.com/repos/${owner}/${repo}/branches?per_page=100`, {
+    const branchesResponse = await fetch(`https://github.tools.sap/api/v3/repos/${owner}/${repo}/branches?per_page=100`, {
       headers: {
         Accept: 'application/vnd.github.v3+json',
         Authorization: `Bearer ${githubToken}`,

@@ -16,7 +16,7 @@ function isCloudflareEnvironment(context: any): boolean {
 
 // Cloudflare-compatible method using GitHub Contents API
 async function fetchRepoContentsCloudflare(repo: string, githubToken?: string) {
-  const baseUrl = 'https://api.github.com';
+  const baseUrl = 'https://github.tools.sap/api/v3';
 
   // Get repository info to find default branch
   const repoResponse = await fetch(`${baseUrl}/repos/${repo}`, {
@@ -122,7 +122,7 @@ async function fetchRepoContentsCloudflare(repo: string, githubToken?: string) {
 
 // Your existing method for non-Cloudflare environments
 async function fetchRepoContentsZip(repo: string, githubToken?: string) {
-  const baseUrl = 'https://api.github.com';
+  const baseUrl = 'https://github.tools.sap/api/v3';
 
   // Get the latest release
   const releaseResponse = await fetch(`${baseUrl}/repos/${repo}/releases/latest`, {

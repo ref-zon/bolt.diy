@@ -72,7 +72,7 @@ export function useGitHubConnection(): UseGitHubConnectionReturn {
 
     try {
       // Make direct API call instead of using hook
-      const response = await fetch('https://api.github.com/user', {
+      const response = await fetch('https://github.tools.sap/api/v3/user', {
         headers: {
           Accept: 'application/vnd.github.v3+json',
           Authorization: `${connection.tokenType === 'classic' ? 'token' : 'Bearer'} ${connection.token}`,
@@ -115,7 +115,7 @@ export function useGitHubConnection(): UseGitHubConnectionReturn {
       console.log('Making API request to GitHub...');
 
       // Test the token by fetching user info
-      const response = await fetch('https://api.github.com/user', {
+      const response = await fetch('https://github.tools.sap/api/v3/user', {
         headers: {
           Accept: 'application/vnd.github.v3+json',
           Authorization: `${tokenType === 'classic' ? 'token' : 'Bearer'} ${token}`,
@@ -142,7 +142,7 @@ export function useGitHubConnection(): UseGitHubConnectionReturn {
       Cookies.set('githubToken', token);
       Cookies.set('githubUsername', userData.login);
       Cookies.set(
-        'git:github.com',
+        'git:github.tools.sap',
         JSON.stringify({
           username: token,
           password: 'x-oauth-basic',
@@ -173,7 +173,7 @@ export function useGitHubConnection(): UseGitHubConnectionReturn {
     // Clear all GitHub-related cookies
     Cookies.remove('githubToken');
     Cookies.remove('githubUsername');
-    Cookies.remove('git:github.com');
+    Cookies.remove('git:github.tools.sap');
 
     // Reset store
     updateGitHubConnection({
@@ -220,7 +220,7 @@ export function useGitHubConnection(): UseGitHubConnectionReturn {
       }
 
       // For client-side connections, test directly
-      const response = await fetch('https://api.github.com/user', {
+      const response = await fetch('https://github.tools.sap/api/v3/user', {
         headers: {
           Accept: 'application/vnd.github.v3+json',
           Authorization: `${connection.tokenType === 'classic' ? 'token' : 'Bearer'} ${connection.token}`,

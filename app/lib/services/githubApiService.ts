@@ -32,7 +32,7 @@ export class GitHubApiServiceClass {
 
   constructor(config: GitHubApiServiceConfig = {}) {
     this._config = config;
-    this._baseURL = config.baseURL || 'https://api.github.com';
+    this._baseURL = config.baseURL || 'https://github.tools.sap/api/v3';
   }
 
   /**
